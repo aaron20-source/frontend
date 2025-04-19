@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+    <style> /* Basic styling for the show/hide password */
+        .password-toggle {
+            display: flex;
+            align-items: center;
+            margin-top: 5px;
+        }
+
+        .password-toggle input[type="checkbox"] {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="loginEmail">Email:</label>
+                <input type="email" id="loginEmail" name="loginEmail" required>
+            </div>
+            <div class="form-group">
+                <label for="loginPassword">Password:</label>
+                <input type="password" id="loginPassword" name="loginPassword" required>
+            </div>
+            <div class="password-toggle">
+                <input type="checkbox" id="showPassword">
+                <label for="showPassword">Show Password</label>
+            </div>
+            <button type="submit">Login</button>
+        </form>
+        <p><a href="forgot.html">Forgot your password?</a></p>
+        <p>Don't have an account? <a href="register.html">Register here</a></p>
+        <div id="loginMessage" class="message"></div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const passwordInput = document.getElementById('loginPassword');
+            const showPasswordCheckbox = document.getElementById('showPassword');
+
+            showPasswordCheckbox.addEventListener('change', function() {
+                const passwordType = this.checked ? 'text' : 'password';
+                passwordInput.type = passwordType;
+            });
+        });
+    </script>
+    <script src="System.js"></script>
+</body>
+</html>
